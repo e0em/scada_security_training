@@ -4,6 +4,7 @@ services:
     HostA:
         image: e0em/ubuntu-scada:arm64
         container_name: A-10.9.0.5
+        hostname:       A
         tty: true
         cap_add:
                 - ALL
@@ -18,6 +19,7 @@ services:
     HostB:
         image: e0em/ubuntu-scada:arm64
         container_name: B-10.9.0.6
+        hostname:       B
         tty: true
         cap_add:
                 - ALL
@@ -32,7 +34,8 @@ services:
 
     HostM:
         image: e0em/ubuntu-scada:arm64
-        container_name: M-10.9.0.105
+        container_name: M-10.9.0.9
+        hostname:       M
         tty: true
         cap_add:
                 - ALL
@@ -41,7 +44,7 @@ services:
                 - ./volumes:/volumes
         networks:
             net-10.9.0.0:
-                ipv4_address: 10.9.0.105
+                ipv4_address: 10.9.0.9
 
 networks:
     net-10.9.0.0:
