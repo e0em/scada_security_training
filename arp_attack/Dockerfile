@@ -30,8 +30,8 @@ RUN apt-get update  \
 # Create the "seed" user account
 # Change seed's and root's passwords to "dees"
 RUN  useradd -m -s /bin/bash seed \
-     && echo "root:dees" | chpasswd \
-     && echo "seed:dees" | chpasswd
+     && echo "root:root" | chpasswd \
+     && echo "seed:seed" | chpasswd
 
 COPY bashrc /home/seed/.bashrc
 COPY bashrc /root/.bashrc
