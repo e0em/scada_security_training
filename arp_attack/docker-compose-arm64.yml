@@ -2,7 +2,7 @@ version: "3"
 
 services:
     HostA:
-        image: e0em/ubuntu-scada:x64
+        image: e0em/ubuntu-scada:arm64
         container_name: A-10.9.0.5
         tty: true
         cap_add:
@@ -16,7 +16,7 @@ services:
                  "
                   
     HostB:
-        image: e0em/ubuntu-scada:x64
+        image: e0em/ubuntu-scada:arm64
         container_name: B-10.9.0.6
         tty: true
         cap_add:
@@ -31,7 +31,7 @@ services:
                  "
 
     HostM:
-        image: e0em/ubuntu-scada:x64
+        image: e0em/ubuntu-scada:arm64
         container_name: M-10.9.0.105
         tty: true
         cap_add:
