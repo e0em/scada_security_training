@@ -16,4 +16,5 @@ sudo usermod -aG docker user
 
 sudo apt -y install docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-darwin-aarch64
+# MacOS ARM version is below link.
+# https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-darwin-aarch64
