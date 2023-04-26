@@ -18,7 +18,8 @@ import logging
 # --------------------------------------------------------------------------- #
 # server = ModbusServer("localhost", 502, data_bank=MyDataBank(), no_block=True)
 logging.basicConfig(format='%(asctime)s %(message)s',level=logging.DEBUG)
-server = ModbusServer("localhost", 502, no_block=True)
+# 此處IP 要改成 Server 所在，如果跟Server 不同 是不會listen 502 這個port的
+server = ModbusServer("192.168.1.254", 502, no_block=True)
 
 try:
     print("Start server...")
