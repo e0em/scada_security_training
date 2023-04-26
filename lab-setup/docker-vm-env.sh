@@ -10,11 +10,12 @@ sudo systemctl enable --now docker
 # “user” 是範例帳號，要改成自己的
 sudo usermod -aG docker user
 
-
 # Install docker-compose. Check whether 1.27.4 is the newest version
 # 1.27.4 已經下載不到，改成 2.17.2
-
-sudo apt -y install docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+# 
+# 20.04 系統默認的太舊 有些功能不支持 docker-compose/focal,now 1.25.0-1
+# sudo apt -y install docker-compose
+#
 # MacOS ARM version is below link.
 # https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-darwin-aarch64
