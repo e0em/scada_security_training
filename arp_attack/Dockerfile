@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+# ARG 將僅在構建期間設定環境。
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update  \
@@ -13,7 +14,6 @@ RUN apt-get update  \
         # 
         arping \
         conntrack \
-        curl   \
         dnsutils  \
         iptables \
         mtr-tiny  \
@@ -25,7 +25,7 @@ RUN apt-get update  \
         telnetd \
         python3.8-distutils \
 	python3-pip \
-     && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 # Create the "seed" user account
 # Change seed's and root's passwords to "dees"
@@ -37,4 +37,3 @@ COPY bashrc /home/seed/.bashrc
 COPY bashrc /root/.bashrc
 
 CMD /bin/bash
-
