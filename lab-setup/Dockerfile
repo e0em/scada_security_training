@@ -24,14 +24,15 @@ RUN apt-get update  \
         telnet \
         telnetd \
         python3.8-distutils \
-	python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+        python3-pip \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip3 install pyftpdlib 
 
-# Create the "seed" user account
-# Change seed's and root's passwords to "dees"
-RUN  useradd -m -s /bin/bash seed \
+# Create the "user" user account
+# Change user's and root's passwords to "user" , "root"
+RUN  useradd -m -s /bin/bash user \
      && echo "root:root" | chpasswd \
-     && echo "seed:seed" | chpasswd
+     && echo "user:user" | chpasswd
 
 COPY bashrc /home/seed/.bashrc
 COPY bashrc /root/.bashrc
