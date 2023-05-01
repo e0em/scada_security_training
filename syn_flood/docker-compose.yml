@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+    HostA:
+        image: e0em/ubuntu-scada:x64
+        container_name: A-10.9.0.5
+        hostname:       A
+        tty: true
+        cap_add:
+                - ALL
+        networks:
+            net-10.9.0.0:
+                ipv4_address: 10.9.0.5
+        command: bash -c "
+                      /etc/init.d/openbsd-inetd start &&
+                      tail -f /dev/null
+                 "
+                  
+
+    HostM:
+        image: e0em/ubuntu-scada:x64
+        container_name: M-10.9.0.9
+        hostname:       M
+        tty: true
+        cap_add:
+                - ALL
+        privileged: true
+        volumes:
+                - ./volumes:/volumes
+        networks:
+            net-10.9.0.0:
+                ipv4_address: 10.9.0.9
+
+networks:
+    net-10.9.0.0:
+        name: net-10.9.0.0
+        ipam:
+            config:
+                - subnet: 10.9.0.0/24
+
